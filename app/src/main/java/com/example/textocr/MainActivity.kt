@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             selectImage()
         }
 
+        //CustomFunction.dateParse("15Jan2004")
+
 
     }
 

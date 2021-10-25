@@ -17,11 +17,13 @@ public class CustomFunction {
         String month1 = null;
         String day1 = null;
         try {
-            String lastTwo = null;
-            if (dateStr != null && dateStr.length() >= 8) {
-                lastTwo = dateStr.substring(dateStr.length() - 8);
+            String lastTwo = " ";
+            if (dateStr != null && dateStr.length() >= 9) {
+                lastTwo = dateStr.substring(dateStr.length() - 9);
             }
-            //String dateStr = "01Jun1988";
+
+            //Log.e("lastTwo", String.valueOf(lastTwo));
+            //String dateStr = "20 Nov 1996";
             DateFormat formatter = new SimpleDateFormat("ddMMMyyyy");
             Date date = (Date) formatter.parse(lastTwo);
 
@@ -32,6 +34,7 @@ public class CustomFunction {
             year = cal.get(Calendar.YEAR);
             month = cal.get(Calendar.MONTH);
             day = cal.get(Calendar.DAY_OF_MONTH);
+            //Log.e("day", String.valueOf(day));
 
             if (month < 9) {
                 month1 = "0" + (month + 1);
@@ -43,7 +46,7 @@ public class CustomFunction {
             } else {
                 day1 = day + "";
             }
-            Log.e("formatedDate ", day1 + "/" + month1 + "/" + year);
+            //Log.e("formatedDate ", day1 + "/" + month1 + "/" + year);
 
         } catch (Exception e) {
             e.printStackTrace();
