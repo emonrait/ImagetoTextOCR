@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "1095750076402",
+    "firebase_url": "https://artist-358ad.firebaseio.com",
+    "project_id": "artist-358ad",
+    "storage_bucket": "artist-358ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095750076402:android:3b1936081299aab6",
+        "android_client_info": {
+          "package_name": "com.example.artist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095750076402-1m98f4bp2kggn4agalntncicegh5ggmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.artist",
+            "certificate_hash": "65a6668cd05c2e74a73539e90da3c1ea03c51051"
+          }
+        },
+        {
+          "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW5W8eTx3PyGc4FyVlJLjaZGdLVHnP7Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095750076402:android:697a4398d171378d7acd6b",
+        "android_client_info": {
+          "package_name": "com.example.textocr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW5W8eTx3PyGc4FyVlJLjaZGdLVHnP7Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095750076402:android:0cd9d0a9422c13bb7acd6b",
+        "android_client_info": {
+          "package_name": "eraapps.bankasia.abcbank.apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW5W8eTx3PyGc4FyVlJLjaZGdLVHnP7Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095750076402-miscjdgfrtavsgroneodt217r1l865co.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
