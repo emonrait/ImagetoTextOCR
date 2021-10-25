@@ -3,8 +3,10 @@ package com.example.textocr
 import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -13,29 +15,36 @@ import android.widget.Toast
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
+import java.lang.Exception
+import java.lang.NumberFormatException
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
-    lateinit var editText: EditText
-    lateinit var textrec:Button
-    lateinit var selectImg:Button
+    lateinit var nid_no: EditText
+    lateinit var dateof_birth: EditText
+    lateinit var textrec: Button
+    lateinit var selectImg: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         imageView = findViewById(R.id.imageView)
-        editText = findViewById(R.id.editText)
+        nid_no = findViewById(R.id.nid_no)
         textrec = findViewById(R.id.textrec)
         selectImg = findViewById(R.id.selectImg)
+        dateof_birth = findViewById(R.id.dateof_birth)
 
         selectImg.setOnClickListener {
             startRecognizing(imageView)
+            //dateprint()
         }
 
         selectImg.setOnClickListener {
             selectImage()
         }
-
 
 
     }
@@ -57,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     fun startRecognizing(v: View) {
         if (imageView.drawable != null) {
-            editText.setText("")
+            nid_no.setText("")
             v.isEnabled = false
             val bitmap = (imageView.drawable as BitmapDrawable).bitmap
             val image = FirebaseVisionImage.fromBitmap(bitmap)
@@ -70,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener {
                     v.isEnabled = true
-                    editText.setText("Failed")
+                    nid_no.setText("Failed")
                 }
         } else {
             Toast.makeText(this, "Select an Image First", Toast.LENGTH_LONG).show()
@@ -81,12 +90,48 @@ class MainActivity : AppCompatActivity() {
 
     private fun processResultText(resultText: FirebaseVisionText) {
         if (resultText.textBlocks.size == 0) {
-            editText.setText("No Text Found")
+            nid_no.setText("No Text Found")
             return
         }
         for (block in resultText.textBlocks) {
             val blockText = block.text
-            editText.append(blockText + "\n")
+
+            // Log.e("blockText", blockText.toString())
+            // editText.setText(blockText)
+            /* if (block.text.matches()) {
+                 Log.e("blockText", block.text.toString())
+             }*/
+
+            val value = blockText!!.replace("[-+^:*#_/, IDNOdatefbirhoB]".toRegex(), "")
+            val valuemonth = blockText!!.replace("[-+^:*#_/, ]".toRegex(), "")
+            Log.e("blockText", blockText.toString())
+
+            if (isNumeric(value)) {
+                nid_no.setText(value)
+            }
+
+            var dateValue = CustomFunction.dateParse(valuemonth)
+
+            if (CustomFunction.isValidDate(dateValue)) {
+                dateof_birth.setText(dateValue)
+            }
+
+
         }
+
     }
+
+    fun isNumeric(strNum: String?): Boolean {
+        if (strNum == null) {
+            return false
+        }
+        try {
+            val d = strNum.toDouble()
+        } catch (nfe: NumberFormatException) {
+            return false
+        }
+        return true
+    }
+
+
 }

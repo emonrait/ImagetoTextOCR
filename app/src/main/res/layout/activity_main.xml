@@ -47,10 +47,23 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/dateof_birth"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/actionContainer"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:hint="Detected text will appear here."
+        android:inputType="textMultiLine"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/nid_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dateof_birth"
+        android:layout_marginTop="0dp"
         android:background="@android:color/transparent"
         android:gravity="top"
         android:hint="Detected text will appear here."
